@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from src.Fashion_Recommednation_System import logger
+from src.Sleep_Detection import logger
 import json
 import joblib
 from ensure import ensure_annotations
