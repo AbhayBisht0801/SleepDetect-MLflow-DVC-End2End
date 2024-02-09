@@ -89,14 +89,6 @@ def load_json(path: Path) -> ConfigBox:
     return ConfigBox(content)
 
 
-def feature_extraction(path,model):
-    img=cv.imread(path)
-    img_array=cv.resize(img,(224,224))
-    img=np.expand_dims(img_array,axis=0)
-    preprocessed_img=preprocess_input(img)
-    result=model.predict(preprocessed_img).flatten()
-    normalized_output=result/norm(result)
-    return normalized_output
 def load_object(file_path):
     try:
         with open(file_path, "rb") as file_obj:
