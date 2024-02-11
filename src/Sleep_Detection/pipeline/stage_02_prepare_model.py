@@ -7,7 +7,7 @@ from src.Sleep_Detection import logger
 STAGE_NAME='Prepare Base Model'
 
 
-class PrepareModel:
+class PrepareModelPipeline:
     def __init__(self):
         pass
     def main(self):

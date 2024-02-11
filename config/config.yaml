@@ -15,6 +15,6 @@ prepare_base_model:
 
 training:
   root_dir: artifacts/training
-  saved_features: artifacts/training/extracted_feature.pkl
+  trained_model_path: artifacts/training/model.h5
   
 

@@ -1,30 +1,26 @@
-from src.Sleep_Detection.components.data_ingestion import DataIngestion
 from src.Sleep_Detection.config.configuration import ConfigurationManager
+from src.Sleep_Detection.components.model_trainer import Training
 from src.Sleep_Detection import logger
 
 
-STAGE_NAME='Data Ingestion Stage'
-
-
-class DataIngestionTrainingPipeline:
+class ModelTrainingPipeline:
     def __init__(self):
         pass
     def main(self):
-
-
         config=ConfigurationManager()
-        data_ingestion_config=config.get_data_ingestion_config()
-        data_ingestion=DataIngestion(config=data_ingestion_config)
-        data_ingestion.download_file()
-        data_ingestion.extract_zip_file()
-   
+        trainer_config=config.get_training_config()
+        training=Training(config=trainer_config)
+        training.get_base_model()
+        training.train_valid_generator()
+        training.train()
+STAGE_NAME='Model training'
+    
 if __name__=='__main__':
     try:
         logger.info(f'>>>>>stage {STAGE_NAME} has Started')
-        obj=DataIngestionTrainingPipeline()
+        obj=ModelTrainingPipeline()
         obj.main()
         logger.info(f'>>>>>stage {STAGE_NAME} has completed')
     except Exception as e:
         logger.exception(e)
         raise e
-
