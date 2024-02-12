@@ -35,3 +35,13 @@ if __name__=='__main__':
     except Exception as e:
         logger.exception(e)
         raise e
+STAGE_NAME='Model_Evaluation'
+if __name__=='__main__':
+    try:
+        logger.info(f'>>>>>stage {STAGE_NAME} has Started')
+        obj=ModelEvaluation()
+        obj.main()
+        logger.info(f'>>>>>stage {STAGE_NAME} has completed')
+    except Exception as e:
+        logger.exception(e)
+        raise e

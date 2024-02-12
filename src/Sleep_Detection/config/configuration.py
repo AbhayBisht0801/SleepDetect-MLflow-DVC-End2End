@@ -1,4 +1,4 @@
-from src.Sleep_Detection.entity.config_entity import DataIngestionConfig,PrepareBaseModelConfig,TraningConfig
+from src.Sleep_Detection.entity.config_entity import DataIngestionConfig,PrepareBaseModelConfig,TraningConfig,EvaluateConfig
 from src.Sleep_Detection.utils.common import read_yaml,create_directories
 from src.Sleep_Detection.constants import *
 
@@ -60,3 +60,12 @@ class ConfigurationManager:
             params_is_augmentation=params.AUGMENTATION
         )
         return training_config
+    def get_evaluation_config(self) ->EvaluateConfig:
+        eval_config=EvaluateConfig(path_of_model='artifacts/training/model.h5',
+                                   testing_data='artifacts\\data_ingestion\\dataset\\test',
+                                   mlflow_uri='https://dagshub.com/AbhayBisht0801/SleepDetect-MLflow-DVC-End2End.mlflow',
+                                   all_params=self.params,
+                                   params_batch_size=self.params.BATCH_SIZE,
+                                   params_image_size=self.params.IMAGE_SIZE
+                                   )
+        return eval_config
