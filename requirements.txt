@@ -18,4 +18,5 @@ gdown
 opencv-python
 streamlit
 pillow
+streamlit-webrtc
 -e .

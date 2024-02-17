@@ -28,9 +28,8 @@ class Training:
         )
         if self.config.params_is_augmentation:
             train_datagenerator=tf.keras.preprocessing.image.ImageDataGenerator(
-                rotation_range=20,
-                width_shift_range=0.2,
-                height_shift_range=0.2,
+                rotation_range=90,
+              
                 zoom_range=0.2,
                 horizontal_flip=True,
                 **datagenerator
