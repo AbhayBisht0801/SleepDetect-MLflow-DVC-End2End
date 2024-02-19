@@ -16,32 +16,15 @@ This project aims to detect sleep stages using stable diffusion for image genera
 1. Run the data preprocessing scripts if necessary to generate input data for training.
 
 2. Train the VGG16 model using the provided scripts or your custom implementation.
-
-    ```bash
-    python train_model.py
-    ```
-
 3. Monitor training progress using MLflow.
-
-    ```bash
-    mlflow ui
-    ```
 
 ### Model Evaluation
 
 1. Evaluate the trained model on the test dataset.
 
-    ```bash
-    python evaluate_model.py
-    ```
-
 ### Deployment
 
 1. Deploy the model using Streamlit for local hosting.
-
-    ```bash
-    streamlit run app.py
-    ```
 
 2. Access the deployed application via your web browser at `http://localhost:8501`.
 
